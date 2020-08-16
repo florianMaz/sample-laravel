@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-        @if (\Session::has('error'))
-            <div class="alert alert-error">
-                {!! \Session::get('error') !!}
-            </div>
-        @endif
-         <div class="container">
-            <h2>Employees' list</h2>
-            <a href="{{route('employees.create')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add a employee</a>
-            <table class="table table-bordered" id="employee_datatable">
+         <div class="container border border-light rouned">
+            <h3 class="text-primary text-center mb-4" >Employees</h3>
+            <div class="col-md-12 border border-light rouned p-4">
+            <a href="{{route('employees.create')}}" class="btn btn-primary mb-4" role="button" aria-pressed="true">Add a employee</a>
+            <table class="table table-striped table-bordered" style="width:100%" id="employee_datatable">
                <thead>
                   <tr>
                      <th>Id</th>
@@ -20,13 +16,8 @@
                </thead>
             </table>
          </div>
-
-
-
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-      <script>
+      </div>
+ <script>
          $(document).ready( function () {
          $('#employee_datatable').DataTable({
                processing: true,

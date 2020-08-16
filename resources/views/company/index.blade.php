@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
-         <div class="container">
-            <h2>Companies' list</h2>
-            <a href="{{route('companies.create')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add a company</a>
-            <table class="table table-bordered" id="company_datatable">
+      <div class="container border border-light rouned">
+         <h3 class="text-primary text-center mb-4" >Companies</h3>
+         <div class="col-md-12 border border-light rouned p-4">
+            <a href="{{route('companies.create')}}" class="btn btn-primary mb-4" role="button" aria-pressed="true">Add a company</a>
+            <table class="table table-striped table-bordered" style="width:100%" id="company_datatable">
                <thead>
                   <tr>
                      <th>Id</th>
@@ -14,6 +15,8 @@
                </thead>
             </table>
          </div>
+      </div>
+            
    <script>
    $(document).ready( function () {
     $('#company_datatable').DataTable({

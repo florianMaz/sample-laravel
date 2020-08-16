@@ -5,7 +5,7 @@
     {{ Form::open(array('route' => array('employees.store'))) }}
     <div class="form-group">
         {{ Form::label('company_id', 'Company ') }}
-        {{Form::select('company_id', $companies,  array('class' => 'form-control', 'required' => 'required'))}}
+        {{Form::select('company_id', $companies)}}
         {{$errors->first('company_id')}}
     </div>
     <div class="form-group">
