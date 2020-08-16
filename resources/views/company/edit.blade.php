@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('email', 'E-Mail Address') }}
-            {{ Form::text('email', $company->email,  array('class' => 'form-control')) }}
+            {{ Form::email('email', $company->email,  array('class' => 'form-control')) }}
         </div>
         <div class="form-group">
             {{ Form::label('address', 'Address') }}
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('phone', 'Phone') }}
-            {{ Form::text('phone', $company->phone,  array('class' => 'form-control')) }}
+            {{ Form::number('phone', $company->phone,  array('class' => 'form-control')) }}
         </div>
         <div class="form-group">
             {{ Form::label('website', 'Website') }}
