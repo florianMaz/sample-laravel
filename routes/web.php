@@ -21,8 +21,8 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('employees', 'EmployeeController');
-Route::resource('companies', 'CompanyController');
+Route::resource('employees', 'EmployeeController')->middleware('auth');
+Route::resource('companies', 'CompanyController')->middleware('auth');
 
-Route::get('/companieslist', 'CompanyController@getCompanies')->name('getCompanies');
-Route::get('/employeeslist', 'EmployeeController@getEmployees')->name('getEmployees');
+Route::get('/companieslist', 'CompanyController@getCompanies')->name('getCompanies')->middleware('auth');
+Route::get('/employeeslist', 'EmployeeController@getEmployees')->name('getEmployees')->middleware('auth');

@@ -1,19 +1,9 @@
-<!DOCTYPE html>
- 
-<html lang="en">
-<head>
-<title>Laravel DataTable Example- CodeChief</title>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
-<link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<meta name="csrf-token" content="{{ csrf_token() }}">
-
+@extends('layouts.app')
+@section('content')
          <div class="container">
             <h2>Companies' list</h2>
             <a href="{{route('companies.create')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add a company</a>
-            <table class="table table-bordered" id="laravel_datatable">
+            <table class="table table-bordered" id="company_datatable">
                <thead>
                   <tr>
                      <th>Id</th>
@@ -26,7 +16,7 @@
          </div>
    <script>
    $(document).ready( function () {
-    $('#laravel_datatable').DataTable({
+    $('#company_datatable').DataTable({
            processing: true,
            serverSide: true,
            ajax: "{{ url('companieslist') }}",
@@ -48,10 +38,9 @@
       })
       .then(res => {
          if (res.status === 200) {
-            $('#laravel_datatable').DataTable().ajax.reload();
+            $('#company_datatable').DataTable().ajax.reload();
          }
       })
      }
   </script>
-   </body>
-</html>
+   @endsection

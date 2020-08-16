@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a href="{{route('companies.index')}}" class="btn btn-primary">Companies</a>
+
+                    <a href="{{route('employees.index')}}" class="btn btn-primary">Employees</a>
                 </div>
             </div>
         </div>

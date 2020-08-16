@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->integer('company_id')->unsigned();
+            //$table->integer('company_id')->unsigned();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
@@ -23,10 +23,12 @@ class CreateEmployeesTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('website');
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
         });
 
+        Schema::table('employees', function($table) {
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
+        });
     }
 
     /**
@@ -36,6 +38,9 @@ class CreateEmployeesTable extends Migration
      */
     public function down()
     {
+        Schema::table('employees', function($table) {
+            $table->dropForeign('employees_company_id_foreign');
+        });
         Schema::dropIfExists('employees');
     }
 }

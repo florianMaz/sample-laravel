@@ -6,11 +6,13 @@ use App\Company;
 use App\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
     public function index()
     {
+        //print_r(Employee::with('company')->select('*')->get());
         return view('employee.index');
     }
 
@@ -28,6 +30,16 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        
+        $validator = Validator::make($request->all(), [
+            'company_id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $employee = new Employee($request->all());
         $employee->save();
 
@@ -60,19 +72,20 @@ class EmployeeController extends Controller
         }
     }
 
-    public function getEmployees()
+    public function getEmployees(Request $request)
     {
         //relation => Employee::with('company')->get()
-        return datatables()->of(Employee::all())
-                ->addColumn('action', function($row){
-                        $btn = '<a href="/employees/'.$row->id.'" class="edit btn btn-info btn-sm">View</a>';
-                        $btn = $btn.'<a href="/employees/'.$row->id.'/edit" class="edit btn btn-primary btn-sm">Edit</a>';
-                        $btn = $btn.'<a href="javascript:deleteEmployee('.$row->id.')" class="edit btn btn-danger btn-sm">Delete</a>';
+        return datatables()->of(Employee::with('company')->select('*'))
         
-                        return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
+        ->addColumn('action', function($row){
+                $btn = '<a href="/employees/'.$row->id.'" class="edit btn btn-info btn-sm">View</a>';
+                $btn = $btn.'<a href="/employees/'.$row->id.'/edit" class="edit btn btn-primary btn-sm">Edit</a>';
+                $btn = $btn.'<a href="javascript:deleteEmployee('.$row->id.')" class="edit btn btn-danger btn-sm">Delete</a>';
+
+                return $btn;
+        })
+        ->rawColumns(['action'])
+        ->make(true);
     }
     
 }

@@ -4,15 +4,22 @@
         
 <div class="col-xs-12 col-sm-9">
     <h4>
-        <span class="middle">{{$company->name}}</span>
+        <span class="middle">{{$employee->first_name}}</span>
     </h4>
 
     <div class="profile-info">
         <div class="profile-info-row">
+            <div class="profile-info-name"> Company </div>
+
+            <div class="profile-info-value">
+                <span>{{$employee->company->name}}</span>
+            </div>
+        </div>
+        <div class="profile-info-row">
             <div class="profile-info-name"> Email </div>
 
             <div class="profile-info-value">
-                <span>{{$company->email}}</span>
+                <span>{{$employee->email}}</span>
             </div>
         </div>
 
@@ -20,7 +27,7 @@
             <div class="profile-info-name"> Address </div>
 
             <div class="profile-info-value">
-                <span>{{$company->address}}</span>
+                <span>{{$employee->address}}</span>
             </div>
         </div>
 
@@ -28,7 +35,7 @@
             <div class="profile-info-name"> Phone </div>
 
             <div class="profile-info-value">
-                <span>{{$company->phone}}</span>
+                <span>{{$employee->phone}}</span>
             </div>
         </div>
 
@@ -36,7 +43,7 @@
             <div class="profile-info-name"> Website </div>
 
             <div class="profile-info-value">
-                <span>{{$company->website}}</span>
+                <span>{{$employee->website}}</span>
             </div>
         </div>
 

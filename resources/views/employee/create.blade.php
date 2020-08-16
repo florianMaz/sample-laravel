@@ -6,13 +6,14 @@
     <div class="form-group">
         {{ Form::label('company_id', 'Company ') }}
         {{Form::select('company_id', $companies,  array('class' => 'form-control', 'required' => 'required'))}}
+        {{$errors->first('company_id')}}
     </div>
     <div class="form-group">
         {{ Form::label('first_name', 'First name') }}
         {{ Form::text('first_name', null,  array('class' => 'form-control', 'required' => 'required')) }}
     </div>
     <div class="form-group">
-        {{ Form::label('last_name', 'First name') }}
+        {{ Form::label('last_name', 'Last name') }}
         {{ Form::text('last_name', null,  array('class' => 'form-control', 'required' => 'required')) }}
     </div>
     <div class="form-group">
