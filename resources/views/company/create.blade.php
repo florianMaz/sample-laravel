@@ -24,7 +24,10 @@
         {{ Form::label('website', 'Website') }}
         {{ Form::text('website', null,  array('class' => 'form-control', 'required' => 'required')) }}
     </div>
-        {{ Form::submit('Validate') }}
+    <div class="col-md-12 text-center"> 
+        {{ Form::submit('Validate',  array('class' => 'btn btn-primary')) }}
+    </div>
+        
     {{ Form::close() }}
 
 @endsection

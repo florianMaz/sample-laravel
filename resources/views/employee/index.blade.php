@@ -10,7 +10,9 @@
                   <tr>
                      <th>Id</th>
                      <th>First name</th>
+                     <th>Last name</th>
                      <th>Email</th>
+                     <th>Company</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -24,12 +26,13 @@
                serverSide: true,
                ajax: "{{ url('employeeslist') }}",
                columns: [
-                           { data: 'id', name: 'id' },
-                           //{ data: 'companies.name', name: 'name' },
-                           { data: 'first_name', name: 'first_name' },
-                           { data: 'email', name: 'email' },
-                           {data: 'action', name: 'action', orderable: false, searchable: false},
-                     ]
+                     { data: 'id', name: 'id' },
+                     { data: 'first_name', name: 'first_name' },
+                     { data: 'last_name', name: 'last_name' },
+                     { data: 'email', name: 'email' },
+                     { data: 'company', name: 'company'},
+                     { data: 'action', name: 'action', orderable: false, searchable: false},
+               ]
             });
          });
 

@@ -12,7 +12,6 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        //print_r(Employee::with('company')->select('*')->get());
         return view('employee.index');
     }
 
@@ -74,9 +73,10 @@ class EmployeeController extends Controller
 
     public function getEmployees(Request $request)
     {
-        //relation => Employee::with('company')->get()
-        return datatables()->of(Employee::with('company')->select('*'))
-        
+        return datatables()->of(Employee::with('company'))
+        ->addColumn('company', function (Employee $employee) {
+            return $employee->company->name;
+        })
         ->addColumn('action', function($row){
                 $btn = '<a href="/employees/'.$row->id.'" class="edit btn btn-info btn-sm">View</a>';
                 $btn = $btn.'<a href="/employees/'.$row->id.'/edit" class="edit btn btn-primary btn-sm">Edit</a>';

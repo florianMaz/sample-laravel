@@ -4,7 +4,7 @@
         
 <div class="col-xs-12 col-sm-9">
     <h4>
-        <span class="middle">{{$employee->first_name}}</span>
+        <span class="middle">{{$employee->first_name}} {{$employee->last_name}}</span>
     </h4>
 
     <div class="profile-info">
@@ -13,6 +13,14 @@
 
             <div class="profile-info-value">
                 <span>{{$employee->company->name}}</span>
+            </div>
+        </div>
+        
+        <div class="profile-info-row">
+            <div class="profile-info-name"> Designation </div>
+
+            <div class="profile-info-value">
+                <span>{{$employee->designation}}</span>
             </div>
         </div>
         <div class="profile-info-row">
