@@ -38,7 +38,6 @@ class EmployeeController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-
         $employee = new Employee($request->all());
         $employee->save();
 

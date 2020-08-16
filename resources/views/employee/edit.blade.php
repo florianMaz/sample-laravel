@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-        {{ Form::model($employee, array('route' => array('companies.update', $employee->id), 'method' => 'PUT')) }}
+        {{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT')) }}
         {{ Form::hidden('id', $employee->id) }}
         <div class="form-group">
             {{ Form::label('company_id', 'Company ') }}
-            {{Form::select('company_id', $companies,  array('class' => 'form-control', 'required' => 'required'), array('id', $employee->company_id))}}
+            {{Form::select('company_id', $companies, $employee->company_id,  array('class' => 'form-control', 'required' => 'required'))}}
         </div>
         <div class="form-group">
             {{ Form::label('first_name', 'First name') }}

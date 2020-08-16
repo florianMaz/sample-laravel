@@ -8,7 +8,6 @@
             <table class="table table-striped table-bordered" style="width:100%" id="employee_datatable">
                <thead>
                   <tr>
-                     <th>Id</th>
                      <th>First name</th>
                      <th>Last name</th>
                      <th>Email</th>
@@ -26,7 +25,6 @@
                serverSide: true,
                ajax: "{{ url('employeeslist') }}",
                columns: [
-                     { data: 'id', name: 'id' },
                      { data: 'first_name', name: 'first_name' },
                      { data: 'last_name', name: 'last_name' },
                      { data: 'email', name: 'email' },

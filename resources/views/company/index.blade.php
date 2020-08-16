@@ -7,7 +7,6 @@
             <table class="table table-striped table-bordered" style="width:100%" id="company_datatable">
                <thead>
                   <tr>
-                     <th>Id</th>
                      <th>Name</th>
                      <th>Email</th>
                      <th>Action</th>
@@ -24,7 +23,6 @@
            serverSide: true,
            ajax: "{{ url('companieslist') }}",
            columns: [
-                     { data: 'id', name: 'id' },
                      { data: 'name', name: 'name' },
                      { data: 'email', name: 'email' },
                      {data: 'action', name: 'action', orderable: false, searchable: false},
