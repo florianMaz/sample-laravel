@@ -23,7 +23,9 @@
             {{ Form::label('website', 'Website') }}
             {{ Form::text('website', $company->website,  array('class' => 'form-control')) }}
         </div>
-            {{ Form::submit('Validate') }}
+        <div class="col-md-12 text-center"> 
+            {{ Form::submit('Validate',  array('class' => 'btn btn-primary')) }}
+        </div>
         {{ Form::close() }}
 
 
